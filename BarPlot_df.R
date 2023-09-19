@@ -20,7 +20,7 @@
          x = "Country", y = "primary education enrollment") + 
          theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-> ggplot(df,aes(x = Country, y = GDP)) + 
+ ggplot(df,aes(x = Country, y = GDP)) + 
          geom_bar(stat = "identity", fill = "yellow") + 
          labs(title = "GDP Data Bar Chart", 
          x = "Country", y = "GDP") + 
