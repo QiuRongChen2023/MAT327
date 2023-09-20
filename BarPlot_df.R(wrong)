@@ -1,7 +1,8 @@
- library(ggplot2)
+
+library(ggplot2)
  df<-world_data_2023[c(187,144,111,86,78,67,61,37),c(1,11,17,18,24,26,30,32)]
  df
-
+# that barplot come out something wrong with the scales of yaxis,the scales of yaxis disorder.
  ggplot(df,aes(x = Country, y = `Unemployment rate`)) + 
          geom_bar(stat = "identity", fill = "blue") + 
          labs(title = "Unemployment Rate Data Bar Chart", 
