@@ -10,6 +10,17 @@ world_data_2023$`Gross primary education enrollment (%)`<-as.numeric(gsub("[\\%,
 world_data_2023$`Total tax rate`<-as.numeric(gsub("[\\%,]","",world_data_2023$`Total tax rate`))
 world_data_2023$`Out of pocket health expenditure`<-as.numeric(gsub("[\\%,]","",world_data_2023$`Out of pocket health expenditure`))
 
+#remove column
+
+world_data_2023<-subset(world_data_2023,select = -c(2,3,4,5,6,7,8,9,10,12,13,14,15,19,20,21,22,23,25,27,28,29,30,33,34,35))
+
+
+
+#remove rows
+world<-world_data_2023[-c(145:161),]
+
+
+
 library(dplyr)
 
 #change column name 
@@ -21,27 +32,10 @@ colnames(world_data_2023)[11]="Tax"
 colnames(world_data_2023)[7]="MinWage"
 colnames(world_data_2023)[3]="GasPrice"
 
-#remove column
-world_data_2023<-subset(world_data_2023,select = -Abbreviation)
-world_data_2023<-subset(world_data_2023,select = -2)
-world_data_2023<-subset(world_data_2023,select = -c(2,3,4,5,6,7))
-world_data_2023<-subset(world_data_2023,select = -c(3,4,6,10,11,12,16,20,24,25,26))
-world_data_2023<-subset(world_data_2023,select = -c(3,8,12))
-world_data_2023<-subset(world_data_2023,select = -c(6,9,10))
-
-#remove rows
-world<-world_data_2023[-c(145:161),]
-world_data_2023<-world_data_2023[-(188:195),]
-world_data_2023<-world_data_2023[-(2:9),]
 
 #find median for column 2-3,4-9
-lapply(world[2:3],median,na.rm=TRUE)
-lapply(world[4:9],median,na.rm=TRUE)
-
-#remove missing data with the median
-world$EduEnrl[world$EduEnrl==20]<-median(world$EduEnrl)
-hist(world$EduEnrl)
-
+lapply(world_data_2023[2:3],median,na.rm=TRUE)
+lapply(world_data_2023[4:9],median,na.rm=TRUE)
 
 
 
