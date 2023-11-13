@@ -91,9 +91,9 @@ hist(model$residuals,
      freq=FALSE)
 
 #plotting a scatter plot of the actual observed response value (x axis) vs. residual (y axis)
-plot(world$`Total tax rate`~ world$`Out of pocket health expenditure`,data = world,
-     xlab = "Out of pocket health expenditure",
-     ylab = "Total tax rate",
+plot(world$`Out of pocket health expenditure`~world$`Total tax rate`,data = world,
+     ylab = "Out of pocket health expenditure",
+     xlab = "Total tax rate",
      main = "tax rate vs health expenditure",
      col  = "grey")
 abline(model, lwd = 3, col = "darkorange")
